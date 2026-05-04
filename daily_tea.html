@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Daily Tea — Business Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#1B6B1B;--green2:#2E8B2E;--green3:#4CAF50;--green-light:#D4EDDA;
+  --gold:#C8952A;--gold2:#F0B429;--gold-light:#FFF8E1;
+  --brown:#5C3317;--brown2:#7A4520;
+  --red:#C0392B;--white:#fff;--cream:#FEFDF5;
+  --display:'Baloo 2',cursive;--body:'Poppins',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--cream);color:#1a1a1a;overflow-x:hidden}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#0D4A0D 0%,#1B6B1B 35%,#2E8B2E 65%,#1B6B1B 100%);
+  padding:60px 5vw 50px;text-align:center;position:relative;overflow:hidden;
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(200,149,42,0.15) 0%,transparent 70%)}
+/* floating leaf decorations */
+.leaf{position:absolute;font-size:48px;opacity:0.15;pointer-events:none}
+.leaf1{top:10px;left:3vw;transform:rotate(-30deg)}
+.leaf2{top:20px;right:4vw;transform:rotate(20deg)}
+.leaf3{bottom:10px;left:8vw;transform:rotate(15deg)}
+.leaf4{bottom:5px;right:6vw;transform:rotate(-20deg)}
+.leaf5{top:50%;left:1vw;transform:rotate(45deg)}
+.leaf6{top:40%;right:2vw;transform:rotate(-40deg)}
+.hero-cup{font-size:72px;margin-bottom:8px;display:block;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4))}
+.hero-title{font-family:var(--display);font-size:clamp(44px,12vw,88px);font-weight:800;line-height:1;letter-spacing:-1px;color:var(--gold2);text-shadow:3px 3px 0 rgba(0,0,0,0.3);margin-bottom:4px}
+.hero-sub{font-family:var(--display);font-size:clamp(18px,5vw,30px);font-weight:700;color:#fff;background:var(--brown2);display:inline-block;padding:6px 28px;border-radius:6px;letter-spacing:1px;margin-bottom:28px;text-transform:uppercase}
+.hero-pills{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:0}
+.hero-pill{background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.3);color:#fff;padding:10px 24px;border-radius:8px;font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px}
+.hero-pill .val{font-family:var(--display);font-size:20px;color:var(--gold2);font-weight:800}
+
+/* ── MARQUEE ── */
+.mstrip{background:var(--brown);padding:11px 0;overflow:hidden;white-space:nowrap}
+.minner{display:inline-flex;animation:scroll 22s linear infinite}
+.mitem{display:inline-flex;align-items:center;gap:10px;padding:0 24px;font-size:13px;font-weight:600;color:#F0B429;text-transform:uppercase;letter-spacing:.5px}
+.mdot{width:5px;height:5px;border-radius:50%;background:var(--gold2);flex-shrink:0}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── SECTION WRAPPER ── */
+.section{padding:60px 5vw}
+.sec-title{font-family:var(--display);font-size:clamp(24px,5vw,36px);font-weight:800;text-align:center;margin-bottom:8px}
+.sec-sub{text-align:center;font-size:15px;color:#555;margin-bottom:40px;font-weight:400}
+
+/* ── FREE TEA BANNER ── */
+.free-tea{background:linear-gradient(135deg,var(--gold2),#E8A020,var(--gold2));padding:28px 5vw;text-align:center;position:relative;overflow:hidden}
+.free-tea::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,0.05) 10px,rgba(255,255,255,0.05) 20px)}
+.ft-inner{position:relative;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.ft-icon{font-size:48px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.2))}
+.ft-text{text-align:left}
+.ft-main{font-family:var(--display);font-size:clamp(22px,6vw,38px);font-weight:800;color:var(--brown);line-height:1}
+.ft-main span{color:var(--green);font-size:clamp(28px,8vw,52px)}
+.ft-main2{font-family:var(--display);font-size:clamp(18px,4vw,26px);font-weight:700;color:#fff;margin-top:4px}
+
+/* ── AUTO PAY ── */
+.autopay{background:var(--green-light);border:2px solid var(--green3);border-radius:14px;padding:20px 28px;display:flex;align-items:center;gap:16px;max-width:480px;margin:0 auto 48px;text-align:left}
+.ap-icon{font-size:40px;flex-shrink:0}
+.ap-label{font-size:12px;font-weight:600;color:var(--green);text-transform:uppercase;letter-spacing:1px}
+.ap-val{font-family:var(--display);font-size:22px;font-weight:800;color:var(--green)}
+
+/* ── EARN & REFER ── */
+.earn-section{background:linear-gradient(160deg,#0D4A0D,#1B6B1B)}
+.earn-section .sec-title{color:var(--gold2)}
+.earn-section .sec-sub{color:rgba(255,255,255,0.6)}
+.earn-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.earn-card{background:rgba(255,255,255,0.07);border:1.5px solid rgba(240,180,41,0.3);border-radius:16px;padding:28px 20px;text-align:center;transition:transform .2s,border-color .2s}
+.earn-card:hover{transform:translateY(-4px);border-color:var(--gold2)}
+.ec-icon{font-size:48px;margin-bottom:14px;display:block}
+.ec-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.ec-val{font-family:var(--display);font-size:clamp(28px,5vw,42px);font-weight:800;color:var(--gold2);line-height:1}
+.ec-desc{font-size:13px;color:rgba(255,255,255,0.55);margin-top:8px;font-weight:300;line-height:1.6}
+.earn-highlight{background:rgba(240,180,41,0.12);border:2px solid var(--gold2);border-radius:12px;padding:18px 28px;text-align:center;margin-top:24px;max-width:400px;margin-left:auto;margin-right:auto}
+.eh-label{font-size:13px;color:rgba(255,255,255,0.6);font-weight:500;margin-bottom:4px}
+.eh-val{font-family:var(--display);font-size:clamp(28px,6vw,44px);font-weight:800;color:var(--gold2)}
+
+/* ── 3 LEVEL PLAN ── */
+.level-section{background:var(--cream)}
+.level-section .sec-title{color:var(--brown)}
+.level-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-radius:18px;overflow:hidden;border:2px solid var(--green3);margin-bottom:28px;position:relative}
+.level-arrow{display:none}
+.level-card{padding:36px 24px;text-align:center;position:relative}
+.level-card:not(:last-child)::after{content:'➜';position:absolute;right:-16px;top:50%;transform:translateY(-50%);font-size:28px;color:var(--green2);z-index:2}
+.lc1{background:linear-gradient(160deg,#E8F5E9,#C8E6C9)}
+.lc2{background:linear-gradient(160deg,#C8E6C9,#A5D6A7)}
+.lc3{background:linear-gradient(160deg,#A5D6A7,#81C784)}
+.lc-icon{font-size:52px;margin-bottom:14px;display:block}
+.lc-num{font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
+.lc-title{font-family:var(--display);font-size:26px;font-weight:800;color:var(--green);margin-bottom:4px}
+.lc-desc{font-size:13px;color:var(--green2);font-weight:500}
+.income-cap{background:linear-gradient(135deg,var(--brown),var(--brown2));color:#fff;border-radius:12px;padding:18px 28px;text-align:center;max-width:400px;margin:0 auto}
+.cap-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.cap-val{font-family:var(--display);font-size:clamp(28px,6vw,44px);font-weight:800;color:var(--gold2)}
+
+/* ── RULES / ACTIVATION ── */
+.rules-section{background:linear-gradient(160deg,#0D4A0D,#1B6B1B);padding:52px 5vw}
+.rules-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:700px;margin:0 auto}
+.rule-card{border-radius:14px;padding:22px 24px;display:flex;align-items:flex-start;gap:14px}
+.rule-warn{background:rgba(192,57,43,0.2);border:1.5px solid rgba(192,57,43,0.5)}
+.rule-ok{background:rgba(76,175,80,0.15);border:1.5px solid rgba(76,175,80,0.4)}
+.rule-info{background:rgba(240,180,41,0.12);border:1.5px solid rgba(240,180,41,0.3)}
+.rule-icon{font-size:28px;flex-shrink:0;margin-top:2px}
+.rule-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px}
+.rule-desc{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;font-weight:300}
+
+/* ── REWARDS ── */
+.rewards-section{background:var(--cream)}
+.rewards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:700px;margin:0 auto}
+.reward-card{background:var(--white);border:2px solid var(--green3);border-radius:18px;padding:30px 24px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.06);transition:transform .2s}
+.reward-card:hover{transform:translateY(-4px)}
+.rw-icon{font-size:56px;margin-bottom:14px;display:block}
+.rw-condition{font-size:12px;font-weight:600;color:var(--green);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.rw-title{font-family:var(--display);font-size:clamp(18px,4vw,24px);font-weight:800;color:var(--brown);margin-bottom:6px}
+.rw-val{font-family:var(--display);font-size:clamp(22px,5vw,32px);font-weight:800;color:var(--gold)}
+.rw-desc{font-size:13px;color:#666;margin-top:8px;font-weight:300}
+
+/* ── CTA FOOTER ── */
+.cta-footer{background:linear-gradient(135deg,var(--gold2),#E8A020,var(--gold2));padding:52px 5vw;text-align:center;position:relative;overflow:hidden}
+.cta-footer::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(0,0,0,0.1) 0%,transparent 60%)}
+.cta-main{font-family:var(--display);font-size:clamp(32px,8vw,64px);font-weight:800;color:var(--brown);line-height:1;margin-bottom:8px;letter-spacing:-1px}
+.cta-steps{display:flex;gap:0;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:32px}
+.cta-step{font-family:var(--display);font-size:clamp(18px,4vw,26px);font-weight:700;color:var(--brown);padding:6px 20px}
+.cta-sep{font-size:24px;color:var(--brown);opacity:0.4}
+.cta-btn{background:var(--brown);color:var(--gold2);border:none;padding:16px 40px;border-radius:14px;font-size:18px;font-weight:700;cursor:pointer;font-family:var(--body);letter-spacing:.3px;transition:transform .15s}
+.cta-btn:active{transform:scale(0.97)}
+.cta-note{font-size:13px;color:rgba(92,51,23,0.6);margin-top:14px}
+
+/* ── REGISTRATION FORM ── */
+.form-section{background:var(--green);padding:60px 5vw}
+.form-section .sec-title{color:var(--gold2)}
+.form-section .sec-sub{color:rgba(255,255,255,0.6)}
+.form-box{background:var(--white);border-radius:20px;padding:36px;max-width:540px;margin:0 auto;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.form-row.single{grid-template-columns:1fr}
+.finput{width:100%;padding:13px 16px;border:1.5px solid #ddd;border-radius:10px;font-size:14px;font-family:var(--body);color:#333;outline:none;-webkit-appearance:none;transition:border-color .2s}
+.finput:focus{border-color:var(--green3)}
+.finput::placeholder{color:#bbb}
+.fsubmit{width:100%;background:linear-gradient(135deg,var(--green2),var(--green));color:#fff;border:none;padding:15px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;font-family:var(--body);margin-top:8px;letter-spacing:.3px}
+.fprice{text-align:center;margin-top:14px;font-size:13px;color:#888}
+.fprice strong{color:var(--brown);font-size:15px}
+
+/* ── FOOTER ── */
+footer{background:#0A2E0A;padding:28px 5vw;text-align:center}
+footer p{font-size:13px;color:rgba(255,255,255,0.3)}
+footer p span{color:var(--gold2)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  .earn-cards{grid-template-columns:1fr;gap:14px}
+  .level-grid{grid-template-columns:1fr;gap:0}
+  .level-card:not(:last-child)::after{content:'▼';right:50%;bottom:-18px;top:auto;transform:translateX(50%)}
+  .rules-grid,.rewards-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .hero-pills{flex-direction:column;align-items:center}
+  .cta-steps{flex-direction:column;gap:4px}
+  .cta-sep{display:none}
+}
+@media(max-width:480px){
+  .section{padding:48px 5vw}
+  .ft-text{text-align:center}
+  .ft-inner{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="leaf leaf1">🍃</div>
+  <div class="leaf leaf2">🍃</div>
+  <div class="leaf leaf3">🍃</div>
+  <div class="leaf leaf4">🍃</div>
+  <div class="leaf leaf5">🍃</div>
+  <div class="leaf leaf6">🍃</div>
+  <span class="hero-cup">☕</span>
+  <div class="hero-title">DAILY TEA</div>
+  <div class="hero-sub">Business Plan</div>
+  <div class="hero-pills">
+    <div class="hero-pill">Registration: <span class="val">₹500</span></div>
+    <div class="hero-pill">Tea / Coffee: <span class="val">₹30</span> per cup</div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mstrip">
+  <div class="minner">
+    <span class="mitem"><span class="mdot"></span>Join & Earn Daily</span>
+    <span class="mitem"><span class="mdot"></span>5 Free Teas Every Week</span>
+    <span class="mitem"><span class="mdot"></span>Earn ₹100 Per Referral</span>
+    <span class="mitem"><span class="mdot"></span>Up to ₹1000 Daily</span>
+    <span class="mitem"><span class="mdot"></span>3 Level Income Plan</span>
+    <span class="mitem"><span class="mdot"></span>Free Paytm Debit Card</span>
+    <span class="mitem"><span class="mdot"></span>Join & Earn Daily</span>
+    <span class="mitem"><span class="mdot"></span>5 Free Teas Every Week</span>
+    <span class="mitem"><span class="mdot"></span>Earn ₹100 Per Referral</span>
+    <span class="mitem"><span class="mdot"></span>Up to ₹1000 Daily</span>
+    <span class="mitem"><span class="mdot"></span>3 Level Income Plan</span>
+    <span class="mitem"><span class="mdot"></span>Free Paytm Debit Card</span>
+  </div>
+</div>
+
+<!-- FREE TEA BANNER -->
+<div class="free-tea">
+  <div class="ft-inner">
+    <span class="ft-icon">🎁</span>
+    <div class="ft-text">
+      <div class="ft-main">Get <span>5 TEAS FREE</span> Every Week!</div>
+      <div class="ft-main2">Enjoy free tea while building your income 🍵</div>
+    </div>
+  </div>
+</div>
+
+<!-- AUTO PAY -->
+<section class="section" style="padding-top:48px;padding-bottom:0">
+  <div class="autopay">
+    <span class="ap-icon">📱</span>
+    <div>
+      <div class="ap-label">Powered by</div>
+      <div class="ap-val">Online AUTO PAY System</div>
+    </div>
+  </div>
+</section>
+
+<!-- EARN & REFER -->
+<section class="section earn-section">
+  <div class="sec-title">💰 Earn &amp; Refer</div>
+  <div class="sec-sub">Simple way to earn money every single day</div>
+  <div class="earn-cards">
+    <div class="earn-card">
+      <span class="ec-icon">👥</span>
+      <div class="ec-label">Per Referral</div>
+      <div class="ec-val">₹100</div>
+      <div class="ec-desc">Get ₹100 for every person you bring in. The more you refer, the more you earn.</div>
+    </div>
+    <div class="earn-card">
+      <span class="ec-icon">📅</span>
+      <div class="ec-label">Daily Earnings</div>
+      <div class="ec-val">₹1000</div>
+      <div class="ec-desc">Earn up to ₹1,000 per day just through direct referrals alone.</div>
+    </div>
+    <div class="earn-card">
+      <span class="ec-icon">🏆</span>
+      <div class="ec-label">Max Daily Cap</div>
+      <div class="ec-val">₹5000</div>
+      <div class="ec-desc">Total daily income capping across all 3 levels combined.</div>
+    </div>
+  </div>
+  <div class="earn-highlight">
+    <div class="eh-label">Daily Income Capping</div>
+    <div class="eh-val">₹5,000 / Day</div>
+  </div>
+</section>
+
+<!-- 3 LEVEL INCOME PLAN -->
+<section class="section level-section">
+  <div class="sec-title" style="color:var(--brown)">🌿 3 Level Income Plan</div>
+  <div class="sec-sub">Build your team across three levels and earn from each level</div>
+  <div class="level-grid">
+    <div class="level-card lc1">
+      <span class="lc-icon">🧑‍💼</span>
+      <div class="lc-num">Level 1</div>
+      <div class="lc-title">10 Directs</div>
+      <div class="lc-desc">Refer 10 people directly to your network</div>
+    </div>
+    <div class="level-card lc2">
+      <span class="lc-icon">👥</span>
+      <div class="lc-num">Level 2</div>
+      <div class="lc-title">100 Team</div>
+      <div class="lc-desc">Your team grows to 100 as your direct members refer others</div>
+    </div>
+    <div class="level-card lc3">
+      <span class="lc-icon">🏟️</span>
+      <div class="lc-num">Level 3</div>
+      <div class="lc-title">1000 Team</div>
+      <div class="lc-desc">A massive team of 1,000 across all three levels</div>
+    </div>
+  </div>
+  <div class="income-cap">
+    <div class="cap-label">Daily Income Capping</div>
+    <div class="cap-val">₹5,000</div>
+  </div>
+</section>
+
+<!-- RULES / ACTIVATION -->
+<section class="rules-section">
+  <div class="sec-title" style="color:var(--gold2);text-align:center;font-family:var(--display);font-size:clamp(24px,5vw,36px);font-weight:800;margin-bottom:8px">📋 Important Rules</div>
+  <div class="sec-sub" style="text-align:center;color:rgba(255,255,255,0.5);font-size:15px;margin-bottom:32px">Please read carefully before joining</div>
+  <div class="rules-grid">
+    <div class="rule-card rule-warn">
+      <span class="rule-icon">⚠️</span>
+      <div>
+        <div class="rule-title">Daily Activation Required</div>
+        <div class="rule-desc">You must spend ₹50 daily on tea/coffee activation to remain eligible for income.</div>
+      </div>
+    </div>
+    <div class="rule-card rule-warn">
+      <span class="rule-icon">🚫</span>
+      <div>
+        <div class="rule-title">No Activation = No Income</div>
+        <div class="rule-desc">If you miss your daily ₹50 activation, your income for that day will not be credited.</div>
+      </div>
+    </div>
+    <div class="rule-card rule-info">
+      <span class="rule-icon">🍵</span>
+      <div>
+        <div class="rule-title">Free Teas Stop When Income Starts</div>
+        <div class="rule-desc">The 5 weekly free teas stop once your income starts flowing from referrals.</div>
+      </div>
+    </div>
+    <div class="rule-card rule-ok">
+      <span class="rule-icon">📱</span>
+      <div>
+        <div class="rule-title">Online Auto Pay System</div>
+        <div class="rule-desc">All payments and income are processed automatically through the online platform.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REWARDS -->
+<section class="section rewards-section">
+  <div class="sec-title" style="color:var(--brown)">🎁 Special Rewards</div>
+  <div class="sec-sub">Complete milestones and unlock exciting rewards</div>
+  <div class="rewards-grid">
+    <div class="reward-card">
+      <span class="rw-icon">🍳</span>
+      <div class="rw-condition">Join 10 Members</div>
+      <div class="rw-title">Get Breakfast Coupon</div>
+      <div class="rw-val">Worth ₹100</div>
+      <div class="rw-desc">Refer 10 people and receive a free breakfast coupon worth ₹100</div>
+    </div>
+    <div class="reward-card">
+      <span class="rw-icon">💳</span>
+      <div class="rw-condition">Complete 10 Directs</div>
+      <div class="rw-title">Free Paytm Bank Debit Card</div>
+      <div class="rw-val">100% FREE</div>
+      <div class="rw-desc">Complete 10 direct referrals and get a free Paytm Bank Debit Card</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-footer">
+  <div class="cta-main">Join — Refer — Earn Daily!</div>
+  <div class="cta-steps">
+    <span class="cta-step">☕ Join</span>
+    <span class="cta-sep">→</span>
+    <span class="cta-step">👥 Refer</span>
+    <span class="cta-sep">→</span>
+    <span class="cta-step">💰 Earn Daily</span>
+  </div>
+  <button class="cta-btn" onclick="document.getElementById('join').scrollIntoView({behavior:'smooth'})">Register Now — ₹500 Only</button>
+  <div class="cta-note">Tea / Coffee at just ₹30 per cup · Daily activation ₹50 required</div>
+</div>
+
+<!-- REGISTRATION FORM -->
+<section id="join" class="form-section">
+  <div class="sec-title">Register Now</div>
+  <div class="sec-sub">Join Daily Tea and start earning today</div>
+  <div class="form-box">
+    <div class="form-row">
+      <input class="finput" type="text" placeholder="Full Name"/>
+      <input class="finput" type="tel" placeholder="Mobile Number"/>
+    </div>
+    <div class="form-row">
+      <input class="finput" type="text" placeholder="City"/>
+      <input class="finput" type="text" placeholder="Referral Code (optional)"/>
+    </div>
+    <div class="form-row single">
+      <input class="finput" type="text" placeholder="Address"/>
+    </div>
+    <div class="form-row single">
+      <select class="finput">
+        <option value="">Preferred Tea/Coffee</option>
+        <option>Masala Chai</option>
+        <option>Ginger Tea</option>
+        <option>Green Tea</option>
+        <option>Black Coffee</option>
+        <option>Milk Coffee</option>
+      </select>
+    </div>
+    <button class="fsubmit">Register & Pay ₹500 →</button>
+    <div class="fprice">Registration fee: <strong>₹500</strong> · Tea per cup: <strong>₹30</strong> · Daily activation: <strong>₹50</strong></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span>Daily Tea Business Plan</span>. All rights reserved.</p>
+  <p style="margin-top:6px">Join · Refer · Earn Daily ☕</p>
+</footer>
+
+</body>
+</html>
